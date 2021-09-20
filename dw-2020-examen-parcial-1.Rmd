@@ -3,6 +3,7 @@ title: "dw-2020-parcial-1"
 author: "Tepi"
 date: "9/3/2020"
 output: rmarkdown::github_document
+always_allow_html:  true
 
 ---
 
@@ -44,27 +45,34 @@ paste0("Mis preguntas a resolver son: ",paste0(preguntas,collapse = ", "))
     
     
 2. Al momento de filtrar en SQL, ¿cuál keyword cumple las mismas funciones que el keyword `OR`  para filtrar uno o más elementos una misma columna?
-# El keyword que cumple la misma funcion que 'or' es: '|' 
+
+El keyword que cumple la misma funcion que 'or' es: '|' 
 
 3. ¿Por qué en R utilizamos funciones de la familia apply (lapply,vapply) en lugar de utilizar ciclos?
 
 4. ¿Cuál es la diferencia entre utilizar `==` y `=` en R?
-#El simbolo '=' se utiliza para asignar un valor a una variable y el '==' se utiliza representando una equivalencia. 
-# ejemplo '='     X = (1,2,3)  es decir que 'x' contiene los valores 1 2 y 3
-#Ejemplo '=='       a == b  representando que son iguales
+
+El simbolo '=' se utiliza para asignar un valor a una variable y el '==' se utiliza representando una equivalencia. 
+
+Ejemplo '='     X = (1,2,3)  es decir que 'x' contiene los valores 1 2 y 3
+
+Ejemplo '=='       a == b  representando que son iguales
 
 5. ¿Cuál es la forma correcta de cargar un archivo de texto donde el delimitador es `:`?
 
-#Primero se instala y corre la libreria 'readr'
-#De la misma utilizaremos la funcion 'read_delim()'
-#Dentro de la cual se especifica la direccion del archrchivo y el separador que en este caso es ':'
-# ejemplo DF <- read_delim(file(), sep = ':')
+ Primero se instala y corre la libreria 'readr'
+ De la misma utilizaremos la funcion 'read_delim()'
+ Dentro de la cual se especifica la direccion del archrchivo y el separador que en este caso es ':'
+ 
+ Ejemplo DF <- read_delim(file(), sep = ':')
 
 6. ¿Qué es un vector y en qué se diferencia en una lista en R?
-#Los vectores en R son objetos que puede contener datos numéricos, cadena de caracteres o datos lógicos,etc; pero solo puede tener elementos del homogeneos o del mismo tipo. Una lista en cambio puede tener diferentes objetos y sus elementos pueden ser heterogeneos.
+
+Los vectores en R son objetos que puede contener datos numéricos, cadena de caracteres o datos lógicos,etc; pero solo puede tener elementos del homogeneos o del mismo tipo. Una lista en cambio puede tener diferentes objetos y sus elementos pueden ser heterogeneos.
 
 7. ¿Qué pasa si quiero agregar una nueva categoría a un factor que no se encuentra en los niveles existentes?
-# R dara un resultado de N/A en la posicion de la nueva categoria ya que no existe en ninguno de los niveles.
+
+ R dara un resultado de N/A en la posicion de la nueva categoria ya que no existe en ninguno de los niveles.
 
 
 8. Si en un dataframe, a una variable de tipo `factor` le agrego un nuevo elemento que *no se encuentra en los niveles existentes*, ¿cuál sería el resultado esperado y por qué?
@@ -72,7 +80,8 @@ paste0("Mis preguntas a resolver son: ",paste0(preguntas,collapse = ", "))
     * `NA`
 9. En SQL, ¿para qué utilizamos el keyword `HAVING`?
 
-# El Keyword 'having' se utiliza para filtrar por agrgacion ya que cuando se utilizan agregaciones no se puedee utilizar 'Where'
+
+El Keyword 'having' se utiliza para filtrar por agrgacion ya que cuando se utilizan agregaciones no se puedee utilizar 'Where'
 
 10. Si quiero obtener como resultado las filas de la tabla A que no se encuentran en la tabla B, ¿cómo debería de completar la siguiente sentencia de SQL?
 
@@ -88,18 +97,19 @@ Extra: ¿Cuántos posibles exámenes de 5 preguntas se pueden realizar utilizand
 * Conteste las siguientes preguntas utilizando sus conocimientos de R. Adjunte el código que utilizó para llegar a sus conclusiones en un chunk del markdown.
 
 A. De los clientes que están en más de un país,¿cuál cree que es el más rentable y por qué?
-#El cliente mas rentable es el 'c53868a0' porque es que tiene mas ingreso operando en mas de 1 pais.
+
+El cliente mas rentable es el 'c53868a0' porque es que tiene mas ingreso operando en mas de 1 pais.
 
 B. Estrategia de negocio ha decidido que ya no operará en aquellos territorios cuyas pérdidas sean "considerables". Bajo su criterio, ¿cuáles son estos territorios y por qué ya no debemos operar ahí?
 
-# Los top 5 territorios con mayor perdida son: 
-# 1. 68de9759	- 5.74%
-# 2. 8682908b	- 	5.05%
-# 3. 45c0376d	-	4.27%
-# 4. 0320288f	 -	3.82%
-# 5. 4814799f	- 2.67%
+### Los top 5 territorios con mayor perdida son: 
+### 1. 68de9759	- 5.74%
+### 2. 8682908b	- 	5.05%
+### 3. 45c0376d	-	4.27%
+### 4. 0320288f	 -	3.82%
+### 5. 4814799f	- 2.67%
 
-#Si se tuviese que eliminar alguno eliminaria los primeros 3 ya que representan perdidas mayores al 4%
+###Si se tuviese que eliminar alguno eliminaria los primeros 3 ya que representan perdidas mayores al 4%
 
 
 
@@ -115,6 +125,8 @@ B. Estrategia de negocio ha decidido que ya no operará en aquellos territorios 
 
 ```{r }
 library(dplyr)
+
+parcial_anonimo <- readRDS("~/GitHub/DataWrangling/Parcial1_Wrangling/data-wrangling-2020-parcial-1/parcial_anonimo.rds")
 
 parcial_anonimo %>%
   group_by(Cliente, Venta) %>%
